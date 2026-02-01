@@ -207,7 +207,7 @@ These types **cannot** be serialized and will throw immediately:
 local CompressIt = require(game.ReplicatedStorage.CompressIt)
 
 local original = {
-    name    = "Alice",
+    name    = "realllity",
     health  = 100,
     pos     = Vector3.new(10, 0, 20),
     active  = true,
@@ -218,7 +218,7 @@ print("Packed size:", buffer.len(packed), "bytes")  -- compact!
 
 local restored = CompressIt.Decompress(packed)
 print(restored.name, restored.health, restored.pos)
--- Alice    100    10, 0, 20
+-- realllity    100    10, 0, 20
 ```
 
 ### Sending over the network
@@ -230,7 +230,7 @@ local event = game.ReplicatedStorage.RemoteEvents.GameState
 
 local state = {
     round   = 7,
-    scores  = { Alice = 120, Bob = 95, Charlie = 110 },
+    scores  = { realllity = 120, immortalwhite = 95, hank = 110 },
     time    = 42.5,
 }
 
@@ -366,10 +366,7 @@ local CompressIt = require(script.Parent.CompressIt)
 
 local ITERATIONS = 10_000
 
---------------------------------------------------------------------------------
 -- TEST PAYLOADS
---------------------------------------------------------------------------------
-
 local Payloads: { [string]: any } = {
 	["Flat Small"] = {
 		name = "Player",
@@ -463,9 +460,7 @@ local Payloads: { [string]: any } = {
 	["Empty Table"]    = {},
 }
 
---------------------------------------------------------------------------------
 -- BENCHMARK RUNNER
---------------------------------------------------------------------------------
 
 local function benchmark(label: string, payload: any)
 	-- Compress timing
@@ -496,11 +491,7 @@ local function benchmark(label: string, payload: any)
 
 	return lastVal  -- keep alive so GC doesn't interfere
 end
-
---------------------------------------------------------------------------------
 -- MAIN
---------------------------------------------------------------------------------
-
 print(string.rep("-", 82))
 print(string.format("  CompressIt Benchmark — %d iterations per suite", ITERATIONS))
 print(string.rep("-", 82))
@@ -517,7 +508,7 @@ for label, payload in pairs(Payloads) do
 end
 
 print(string.rep("-", 82))
-print("Done.")
+print("Benchmark Done UwU")
 ```
 
 ---
@@ -538,4 +529,4 @@ print("Done.")
 | Version | Notes |
 |---|---|
 | v2.0 | Full Roblox type universe (14 types). Quaternion CFrames. Jump-table decoder. Decision Stack resource pool. SharedTable support. Strict bounds validation. |
-| v1.0 | Initial release. Core primitives, tables, Vector3, Color3, CFrame (matrix). |
+| v1.0 | Initial release. Core primitives, tables, Vector3, Color3, CFrame (matrix). `removed`
