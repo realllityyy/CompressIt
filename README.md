@@ -93,7 +93,7 @@ CompressIt uses a strict three-phase pipeline. No phase does the work of another
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│  Phase 1 — Smart Probe  ("The Brain")                           │
+│  Phase 1 — Smart Probe                                          │
 │                                                                 │
 │   Traverses the data exactly once.                              │
 │   • Calculates the exact byte size of the output.               │
@@ -106,7 +106,7 @@ CompressIt uses a strict three-phase pipeline. No phase does the work of another
                                 │  Decision Stack
                                 ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  Phase 2 — Linear Encoder  ("The Muscle")                       │
+│  Phase 2 — Linear Encoder                                       │
 │                                                                 │
 │   Allocates the result buffer exactly once.                     │
 │   Traverses the data a second time but performs zero logic.     │
@@ -119,11 +119,11 @@ CompressIt uses a strict three-phase pipeline. No phase does the work of another
                                 │  Packed buffer
                                 ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  Phase 3 — Jump-Table Decoder                                   │
+│  Phase 3 — Jump-Table                                           │
 │                                                                 │
 │   256-slot function table indexed by tag byte → O(1) dispatch.  │
 │   Immediate integer and string decoders are baked at            │
-│   module-load time (value captured in closure).                  │
+│   module-load time (value captured in closure).                 │
 │   Strict bounds validation on every read.                       │
 └─────────────────────────────────────────────────────────────────┘
 ```
